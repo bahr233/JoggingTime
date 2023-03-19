@@ -1,15 +1,54 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using JoggingTime.Services.Jogging;
+using JoggingTime.UnitOfWork;
+using JoggingTime.ViewModels;
+using JoggingTime.ViewModels.Jogging;
 using Microsoft.AspNetCore.Mvc;
 
 namespace JoggingTime.Controllers
 {
-    [Route("api/[controller]/[action]")]
+    [Route("[controller]/[action]")]
     [ApiController]
     public class JoggingController : ControllerBase
     {
-        public JoggingController()
+        private readonly IJoggingService _joggingService;
+        private readonly IUnitOfWork _unitOfWork;
+        public JoggingController(IJoggingService joggingService, IUnitOfWork unitOfWork)
         {
+            _joggingService = joggingService;
+            _unitOfWork = unitOfWork;
+        }
 
+        [HttpGet]
+        public ResponseViewModel<List<JoggingViewModel>> Get()
+        {
+            return new ResponseViewModel<List<JoggingViewModel>>(_joggingService.Get());
+        }
+        [HttpGet]
+        public ResponseViewModel<JoggingViewModel> GetById(int id)
+        {
+            return new ResponseViewModel<JoggingViewModel>(_joggingService.GetById(id));
+        }
+        [HttpPost]
+        public ResponseViewModel<int> Create(JoggingCreateViewModel viewmodel)
+        {
+            var model = _joggingService.Create(viewmodel);
+            _unitOfWork.Save();
+            return new ResponseViewModel<int>(model.ID, "Jogging Added Successfuly");
+        }
+
+        [HttpPut]
+        public ResponseViewModel<bool> Update(JoggingUpdateViewModel viewmodel)
+        {
+            _joggingService.Update(viewmodel);
+            _unitOfWork.Save();
+            return new ResponseViewModel<bool>(true, "Jogging Updated Successfuly");
+        }
+        [HttpDelete]
+        public ResponseViewModel<bool> Delete(int id)
+        {
+            _joggingService.Delete(id);
+            _unitOfWork.Save();
+            return new ResponseViewModel<bool>(true, "Jogging Deleted Successfuly");
         }
     }
 }

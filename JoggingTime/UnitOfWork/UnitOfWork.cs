@@ -43,15 +43,15 @@ namespace JoggingTime.UnitOfWork
         }
         private void SetUserID()
         {
-            try
-            {
-                string accessToken = HttpRequestHelper.GetHeaderValue("token");
-                UserID = int.Parse(SecurityHelper.GetUserIDFromToken(accessToken).ToString());
-            }
-            catch (Exception)
-            {
-                throw;
-            }
+            //try
+            //{
+            //    string accessToken = HttpRequestHelper.GetHeaderValue("token");
+            //    UserID = int.Parse(SecurityHelper.GetUserIDFromToken(accessToken).ToString());
+            //}
+            //catch (Exception)
+            //{
+            //    throw;
+            //}
         }
 
         private void BeginTransaction()

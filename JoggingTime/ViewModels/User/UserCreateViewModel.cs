@@ -1,9 +1,8 @@
 ﻿using JoggingTime.Enums;
-using System.ComponentModel.DataAnnotations.Schema;
 
-namespace JoggingTime.Models
+namespace JoggingTime.ViewModels.User
 {
-    public class User:BaseModel
+    public class UserCreateViewModel
     {
         public string Name { get; set; }
         public string Email { get; set; }
