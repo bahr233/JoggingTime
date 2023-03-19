@@ -10,8 +10,6 @@ namespace JoggingTime.Models
         [Column(Order = 0)]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public virtual int ID { get; set; }
-
-        [Column(Order = 15)]
         public bool IsDeleted { get; set; } = false;
 
     }

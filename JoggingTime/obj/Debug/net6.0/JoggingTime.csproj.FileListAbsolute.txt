@@ -80,3 +80,7 @@ C:\Users\DELL\Documents\GitHub\JoggingTime\JoggingTime\obj\Debug\net6.0\refint\J
 C:\Users\DELL\Documents\GitHub\JoggingTime\JoggingTime\obj\Debug\net6.0\JoggingTime.pdb
 C:\Users\DELL\Documents\GitHub\JoggingTime\JoggingTime\obj\Debug\net6.0\JoggingTime.genruntimeconfig.cache
 C:\Users\DELL\Documents\GitHub\JoggingTime\JoggingTime\obj\Debug\net6.0\ref\JoggingTime.dll
+C:\Users\DELL\Documents\GitHub\JoggingTime\JoggingTime\bin\Debug\net6.0\Autofac.dll
+C:\Users\DELL\Documents\GitHub\JoggingTime\JoggingTime\bin\Debug\net6.0\Autofac.Extensions.DependencyInjection.dll
+C:\Users\DELL\Documents\GitHub\JoggingTime\JoggingTime\bin\Debug\net6.0\AutoMapper.dll
+C:\Users\DELL\Documents\GitHub\JoggingTime\JoggingTime\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
