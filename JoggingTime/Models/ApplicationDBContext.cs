@@ -8,5 +8,7 @@ namespace JoggingTime.Models
         {
 
         }
+        public DbSet<User> users { get; set; }
+        public DbSet<UserJoggingTime> userJoggingTimes { get; set; }
     }
 }
