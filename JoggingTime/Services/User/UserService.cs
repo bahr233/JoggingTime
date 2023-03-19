@@ -21,6 +21,11 @@ namespace JoggingTime.Services.User
             return _repository.Get()
                 .ProjectTo<UserViewModel>(_mapper.ConfigurationProvider).ToList();
         }
+        public Models.User Login(LoginViewModel viewmodel)
+        {
+            var model =_repository.Get(i=>i.Email == viewmodel.Email && i.Password == viewmodel.Password).FirstOrDefault();
+            return model;
+        }
         public UserViewModel GetById(int Id)
         {
             return _repository.Get(i=>i.ID==Id).ProjectTo<UserViewModel>(_mapper.ConfigurationProvider).FirstOrDefault();

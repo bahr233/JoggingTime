@@ -8,6 +8,7 @@ namespace JoggingTime.Services.User
         void Delete(int Id);
         List<UserViewModel> Get();
         UserViewModel GetById(int Id);
+        Models.User Login(LoginViewModel viewmodel);
         void Update(UserUpdateViewModel viewmodel);
     }
 }

@@ -39,6 +39,7 @@ namespace JoggingTime.Repositories
             entity.IsDeleted = true;
             SaveIncluded(entity, nameof(entity.IsDeleted));
         }
+        
         public void Delete(int id)
         {
             T entity = new()

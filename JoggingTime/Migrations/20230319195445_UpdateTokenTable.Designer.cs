@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace JoggingTime.Migrations
 {
     [DbContext(typeof(ApplicationDBContext))]
-    [Migration("20230319153714_AddTokenTable")]
-    partial class AddTokenTable
+    [Migration("20230319195445_UpdateTokenTable")]
+    partial class UpdateTokenTable
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -24,6 +24,36 @@ namespace JoggingTime.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
+
+            modelBuilder.Entity("JoggingTime.Models.Token", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasColumnOrder(0);
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
+
+                    b.Property<string>("Code")
+                        .IsRequired()
+                        .HasMaxLength(250)
+                        .HasColumnType("nvarchar(250)");
+
+                    b.Property<DateTime>("ExpirationDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("UserID")
+                        .HasColumnType("int");
+
+                    b.HasKey("ID");
+
+                    b.HasIndex("UserID");
+
+                    b.ToTable("tokens");
+                });
 
             modelBuilder.Entity("JoggingTime.Models.User", b =>
                 {
@@ -83,6 +113,17 @@ namespace JoggingTime.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("userJoggingTimes");
+                });
+
+            modelBuilder.Entity("JoggingTime.Models.Token", b =>
+                {
+                    b.HasOne("JoggingTime.Models.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("JoggingTime.Models.UserJoggingTime", b =>

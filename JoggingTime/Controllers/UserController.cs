@@ -1,8 +1,6 @@
-﻿using JoggingTime.Services.User;
-using JoggingTime.UnitOfWork;
+﻿using JoggingTime.Mediator.User;
 using JoggingTime.ViewModels;
 using JoggingTime.ViewModels.User;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace JoggingTime.Controllers
@@ -11,45 +9,46 @@ namespace JoggingTime.Controllers
     [ApiController]
     public class UserController : ControllerBase
     {
-        private readonly IUserService _userService;
-        private readonly IUnitOfWork _unitOfWork;
-        public UserController(IUserService userService, IUnitOfWork unitOfWork)
+        private readonly IUserMediator _userMediator;
+        public UserController(IUserMediator userMediator)
         {
-            _userService = userService;
-            _unitOfWork = unitOfWork;
+            _userMediator = userMediator;
         }
 
         [HttpGet]
         public ResponseViewModel<List<UserViewModel>> Get()
         {
-            return new ResponseViewModel<List<UserViewModel>>( _userService.Get());
+            return new ResponseViewModel<List<UserViewModel>>(_userMediator.Get());
         }
         [HttpGet]
         public ResponseViewModel<UserViewModel> GetById(int id)
         {
-            return new ResponseViewModel<UserViewModel>(_userService.GetById(id));
+            return new ResponseViewModel<UserViewModel>(_userMediator.GetById(id));
         }
         [HttpPost]
         public ResponseViewModel<int> Create(UserCreateViewModel viewmodel)
         {
-            var model = _userService.Create(viewmodel);
-            _unitOfWork.Save();
-            return new ResponseViewModel<int>(model.ID,"User Added Successfuly");
-        } 
-
+            return new ResponseViewModel<int>(_userMediator.Create(viewmodel), "User Added Successfuly");
+        }
+        [HttpPost]
+        public ResponseViewModel<string> LogIn(LoginViewModel viewmodel)
+        {
+            return _userMediator.Login(viewmodel);
+        }
+        [HttpPost]
+        public ResponseViewModel<bool> LogOut(string token)
+        {
+            return new ResponseViewModel<bool>(_userMediator.LogOut( token));
+        }
         [HttpPut]
         public ResponseViewModel<bool> Update(UserUpdateViewModel viewmodel)
         {
-            _userService.Update(viewmodel);
-            _unitOfWork.Save();
-            return new ResponseViewModel<bool>(true, "User Updated Successfuly");
+            return new ResponseViewModel<bool>(_userMediator.Update(viewmodel), "User Updated Successfuly");
         }
         [HttpDelete]
         public ResponseViewModel<bool> Delete(int id)
-        {
-            _userService.Delete(id);
-            _unitOfWork.Save();
-            return new ResponseViewModel<bool>(true, "User Deleted Successfuly");
+        { 
+            return new ResponseViewModel<bool>(_userMediator.Delete(id), "User Deleted Successfuly");
         }
     }
 }
