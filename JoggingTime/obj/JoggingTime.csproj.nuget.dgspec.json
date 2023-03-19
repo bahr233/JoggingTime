@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\DELL\\Desktop\\JoggingTime\\JoggingTime\\JoggingTime.csproj": {}
+    "C:\\Users\\DELL\\Documents\\GitHub\\JoggingTime\\JoggingTime\\JoggingTime.csproj": {}
   },
   "projects": {
-    "C:\\Users\\DELL\\Desktop\\JoggingTime\\JoggingTime\\JoggingTime.csproj": {
+    "C:\\Users\\DELL\\Documents\\GitHub\\JoggingTime\\JoggingTime\\JoggingTime.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\DELL\\Desktop\\JoggingTime\\JoggingTime\\JoggingTime.csproj",
+        "projectUniqueName": "C:\\Users\\DELL\\Documents\\GitHub\\JoggingTime\\JoggingTime\\JoggingTime.csproj",
         "projectName": "JoggingTime",
-        "projectPath": "C:\\Users\\DELL\\Desktop\\JoggingTime\\JoggingTime\\JoggingTime.csproj",
+        "projectPath": "C:\\Users\\DELL\\Documents\\GitHub\\JoggingTime\\JoggingTime\\JoggingTime.csproj",
         "packagesPath": "C:\\Users\\DELL\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\DELL\\Desktop\\JoggingTime\\JoggingTime\\obj\\",
+        "outputPath": "C:\\Users\\DELL\\Documents\\GitHub\\JoggingTime\\JoggingTime\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\DELL\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -40,6 +40,20 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[7.0.4, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[7.0.4, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[7.0.4, )"
+            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.2.3, )"
