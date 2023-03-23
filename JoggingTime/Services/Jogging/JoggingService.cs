@@ -3,6 +3,7 @@ using AutoMapper.QueryableExtensions;
 using JoggingTime.Repositories;
 using JoggingTime.ViewModels.Jogging;
 using JoggingTime.ViewModels.User;
+using LinqKit;
 
 namespace JoggingTime.Services.Jogging
 {
@@ -17,9 +18,12 @@ namespace JoggingTime.Services.Jogging
             _mapper = mapper;
         }
 
-        public List<JoggingViewModel> Get()
+        public List<JoggingViewModel> Get(DateTime fromDate, DateTime toDate)
         {
-            return _repository.Get()
+            var predicate = PredicateBuilder.New<Models.UserJoggingTime>();
+            predicate = predicate.And(dm => dm.JoggingDate.Date >= fromDate.Date && dm.JoggingDate.Date <= toDate.Date);
+
+            return _repository.Get(predicate)
                 .ProjectTo<JoggingViewModel>(_mapper.ConfigurationProvider).ToList();
         }
         public JoggingViewModel GetById(int Id)

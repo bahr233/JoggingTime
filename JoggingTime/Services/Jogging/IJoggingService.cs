@@ -7,7 +7,7 @@ namespace JoggingTime.Services.Jogging
     {
         UserJoggingTime Create(JoggingCreateViewModel viewmodel);
         void Delete(int Id);
-        List<JoggingViewModel> Get();
+        List<JoggingViewModel> Get(DateTime fromDate, DateTime toDate);
         JoggingViewModel GetById(int Id);
         void Update(JoggingUpdateViewModel viewmodel);
     }

@@ -175,3 +175,13 @@ C:\Users\reem.matar\Documents\GitHub\JoggingTime\JoggingTime\obj\Debug\net6.0\sc
 C:\Users\reem.matar\Documents\GitHub\JoggingTime\JoggingTime\obj\Debug\net6.0\JoggingTime.csproj.CopyComplete
 C:\Users\reem.matar\Documents\GitHub\JoggingTime\JoggingTime\obj\Debug\net6.0\JoggingTime.genruntimeconfig.cache
 C:\Users\reem.matar\Documents\GitHub\JoggingTime\JoggingTime\obj\Debug\net6.0\ref\JoggingTime.dll
+C:\Users\DELL\Documents\GitHub\JoggingTime\JoggingTime\bin\Debug\net6.0\EntityFramework.SqlServer.dll
+C:\Users\DELL\Documents\GitHub\JoggingTime\JoggingTime\bin\Debug\net6.0\EntityFramework.dll
+C:\Users\DELL\Documents\GitHub\JoggingTime\JoggingTime\bin\Debug\net6.0\LinqKit.dll
+C:\Users\DELL\Documents\GitHub\JoggingTime\JoggingTime\bin\Debug\net6.0\LinqKit.Core.dll
+C:\Users\DELL\Documents\GitHub\JoggingTime\JoggingTime\bin\Debug\net6.0\System.Data.SqlClient.dll
+C:\Users\DELL\Documents\GitHub\JoggingTime\JoggingTime\bin\Debug\net6.0\runtimes\win-arm64\native\sni.dll
+C:\Users\DELL\Documents\GitHub\JoggingTime\JoggingTime\bin\Debug\net6.0\runtimes\win-x64\native\sni.dll
+C:\Users\DELL\Documents\GitHub\JoggingTime\JoggingTime\bin\Debug\net6.0\runtimes\win-x86\native\sni.dll
+C:\Users\DELL\Documents\GitHub\JoggingTime\JoggingTime\bin\Debug\net6.0\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\DELL\Documents\GitHub\JoggingTime\JoggingTime\bin\Debug\net6.0\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll

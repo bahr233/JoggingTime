@@ -24,9 +24,9 @@ namespace JoggingTime.Controllers
         [HttpGet]
         //[TypeFilter(typeof(AuthorizeRoleFilter), Arguments = new object[] {UserRole.Manager })]
 
-        public ResponseViewModel<List<JoggingViewModel>> Get()
+        public ResponseViewModel<List<JoggingViewModel>> Get(DateTime fromDate, DateTime toDate)
         {
-            return new ResponseViewModel<List<JoggingViewModel>>(_joggingService.Get());
+            return new ResponseViewModel<List<JoggingViewModel>>(_joggingService.Get( fromDate,  toDate));
         }
         [HttpGet]
         public ResponseViewModel<JoggingViewModel> GetById(int id)
