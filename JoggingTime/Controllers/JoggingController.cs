@@ -22,7 +22,7 @@ namespace JoggingTime.Controllers
         }
 
         [HttpGet]
-        [TypeFilter(typeof(AuthorizeRoleFilter), Arguments = new object[] {UserRole.Manager })]
+        //[TypeFilter(typeof(AuthorizeRoleFilter), Arguments = new object[] {UserRole.Manager })]
 
         public ResponseViewModel<List<JoggingViewModel>> Get()
         {
