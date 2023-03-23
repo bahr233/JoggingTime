@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\DELL\\Documents\\GitHub\\JoggingTime\\JoggingTime\\JoggingTime.csproj": {}
+    "C:\\Users\\reem.matar\\Documents\\GitHub\\JoggingTime\\JoggingTime\\JoggingTime.csproj": {}
   },
   "projects": {
-    "C:\\Users\\DELL\\Documents\\GitHub\\JoggingTime\\JoggingTime\\JoggingTime.csproj": {
+    "C:\\Users\\reem.matar\\Documents\\GitHub\\JoggingTime\\JoggingTime\\JoggingTime.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\DELL\\Documents\\GitHub\\JoggingTime\\JoggingTime\\JoggingTime.csproj",
+        "projectUniqueName": "C:\\Users\\reem.matar\\Documents\\GitHub\\JoggingTime\\JoggingTime\\JoggingTime.csproj",
         "projectName": "JoggingTime",
-        "projectPath": "C:\\Users\\DELL\\Documents\\GitHub\\JoggingTime\\JoggingTime\\JoggingTime.csproj",
-        "packagesPath": "C:\\Users\\DELL\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\DELL\\Documents\\GitHub\\JoggingTime\\JoggingTime\\obj\\",
+        "projectPath": "C:\\Users\\reem.matar\\Documents\\GitHub\\JoggingTime\\JoggingTime\\JoggingTime.csproj",
+        "packagesPath": "C:\\Users\\reem.matar\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\reem.matar\\Documents\\GitHub\\JoggingTime\\JoggingTime\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\DELL\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\reem.matar\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,7 +26,9 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {}
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://packagesource": {}
         },
         "frameworks": {
           "net6.0": {
@@ -51,6 +57,10 @@
             "Autofac.Extensions.DependencyInjection": {
               "target": "Package",
               "version": "[8.0.0, )"
+            },
+            "Microsoft.AspNetCore.Mvc.Core": {
+              "target": "Package",
+              "version": "[2.2.5, )"
             },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
@@ -90,7 +100,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }

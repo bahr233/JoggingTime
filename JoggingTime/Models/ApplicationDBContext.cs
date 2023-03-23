@@ -12,8 +12,8 @@ namespace JoggingTime.Models
         {
 
         }
-        public DbSet<User> users { get; set; }
-        public DbSet<UserJoggingTime> userJoggingTimes { get; set; }
-        public DbSet<Token> tokens { get; set; }
+        public DbSet<User> Users { get; set; }
+        public DbSet<UserJoggingTime> UserJoggingTimes { get; set; }
+        public DbSet<Token> Tokens { get; set; }
     }
 }

@@ -49,7 +49,7 @@ namespace JoggingTime.Migrations
 
                     b.HasIndex("UserID");
 
-                    b.ToTable("tokens");
+                    b.ToTable("Tokens");
                 });
 
             modelBuilder.Entity("JoggingTime.Models.User", b =>
@@ -78,7 +78,7 @@ namespace JoggingTime.Migrations
 
                     b.HasKey("ID");
 
-                    b.ToTable("users");
+                    b.ToTable("Users");
                 });
 
             modelBuilder.Entity("JoggingTime.Models.UserJoggingTime", b =>
@@ -109,7 +109,7 @@ namespace JoggingTime.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("userJoggingTimes");
+                    b.ToTable("UserJoggingTimes");
                 });
 
             modelBuilder.Entity("JoggingTime.Models.Token", b =>

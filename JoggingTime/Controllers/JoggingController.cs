@@ -1,8 +1,11 @@
-﻿using JoggingTime.Services.Jogging;
+﻿using JoggingTime.Enums;
+using JoggingTime.Filters;
+using JoggingTime.Services.Jogging;
 using JoggingTime.UnitOfWork;
 using JoggingTime.ViewModels;
 using JoggingTime.ViewModels.Jogging;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Authorization;
 
 namespace JoggingTime.Controllers
 {
@@ -19,6 +22,8 @@ namespace JoggingTime.Controllers
         }
 
         [HttpGet]
+        [TypeFilter(typeof(AuthorizeRoleFilter), Arguments = new object[] {UserRole.Manager })]
+
         public ResponseViewModel<List<JoggingViewModel>> Get()
         {
             return new ResponseViewModel<List<JoggingViewModel>>(_joggingService.Get());

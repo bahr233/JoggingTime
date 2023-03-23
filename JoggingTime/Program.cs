@@ -5,6 +5,7 @@ using JoggingTime.Configrations;
 using JoggingTime.Models;
 using Microsoft.EntityFrameworkCore;
 using JoggingTime.ViewModels;
+using JoggingTime.Helpers;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -27,8 +28,9 @@ builder.Host.ConfigureContainer<ContainerBuilder>(builder =>
     builder.RegisterModule(new AutofacModule());
 });
 
-builder.Services.AddAutoMapper(typeof(SharedProfile));
 
+builder.Services.AddAutoMapper(typeof(SharedProfile));
+builder.Services.AddSwaggerConfig();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -39,7 +41,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
+app.UseMiddleware<JwtMiddleware>();
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();

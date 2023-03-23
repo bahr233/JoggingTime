@@ -5,6 +5,8 @@ namespace JoggingTime.Helpers
 {
     public class SecurityHelper
     {
+        private const string _salt = "Ac7k85rzat9tmmaFxDGmQgbrTgwvHJyt";
+        private const string _alg = "HmacSHA256";
         public static int GetUserIDFromToken(string token)
         {
             if (string.IsNullOrEmpty(token))
@@ -27,17 +29,20 @@ namespace JoggingTime.Helpers
             }
             return userID;
         }
-        public static string GetHashedPassword(string password)
+        public static string GetHashedPassword(string password, string salt = "")
         {
-
-            string key = string.Join(":", new string[] { password, "ABC" });
-            using (HMAC hmac = HMACSHA256.Create("HmacSHA256"))
+            if (string.IsNullOrEmpty(salt))
+                salt = _salt;
+            string key = string.Join(":", new string[] { password, salt });
+            using (HMAC hmac = HMACSHA256.Create(_alg))
             {
-                hmac.Key = Encoding.UTF8.GetBytes("ABC");
+                // Hash the key.
+                hmac.Key = Encoding.UTF8.GetBytes(_salt);
                 hmac.ComputeHash(Encoding.UTF8.GetBytes(key));
                 return Convert.ToBase64String(hmac.Hash);
             }
         }
+
         public static string GenerateToken(int userID)
         {
 
@@ -56,6 +61,44 @@ namespace JoggingTime.Helpers
 
 
             return accessToken;
+        }
+        public static string Decrypt(string text, string salt = "")
+        {
+            if (!string.IsNullOrEmpty(salt))
+                salt = _salt;
+            string result;
+            if (string.IsNullOrEmpty(text))
+            {
+                result = "";
+            }
+            else
+            {
+                UTF8Encoding uTF8Encoding = new UTF8Encoding();
+                MD5CryptoServiceProvider mD5CryptoServiceProvider = new MD5CryptoServiceProvider();
+                byte[] key = mD5CryptoServiceProvider.ComputeHash(uTF8Encoding.GetBytes(salt));
+                TripleDESCryptoServiceProvider tripleDESCryptoServiceProvider = new TripleDESCryptoServiceProvider();
+                tripleDESCryptoServiceProvider.Key = key;
+                tripleDESCryptoServiceProvider.Mode = CipherMode.ECB;
+                tripleDESCryptoServiceProvider.Padding = PaddingMode.PKCS7;
+                byte[] array = Convert.FromBase64String(text);
+                byte[] bytes;
+                try
+                {
+                    ICryptoTransform cryptoTransform = tripleDESCryptoServiceProvider.CreateDecryptor();
+                    bytes = cryptoTransform.TransformFinalBlock(array, 0, array.Length);
+                }
+                catch (Exception ex)
+                {
+                    bytes = null;
+                }
+                finally
+                {
+                    tripleDESCryptoServiceProvider.Clear();
+                    mD5CryptoServiceProvider.Clear();
+                }
+                result = uTF8Encoding.GetString(bytes);
+            }
+            return result;
         }
     }
 }

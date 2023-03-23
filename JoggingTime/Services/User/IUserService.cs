@@ -1,4 +1,5 @@
-﻿using JoggingTime.ViewModels.User;
+﻿using JoggingTime.Enums;
+using JoggingTime.ViewModels.User;
 
 namespace JoggingTime.Services.User
 {
@@ -10,5 +11,7 @@ namespace JoggingTime.Services.User
         UserViewModel GetById(int Id);
         Models.User Login(LoginViewModel viewmodel);
         void Update(UserUpdateViewModel viewmodel);
+
+        bool HasAccess(int userId, UserRole userRole);
     }
 }

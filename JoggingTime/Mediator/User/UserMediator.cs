@@ -67,7 +67,7 @@ namespace JoggingTime.Mediator.User
             }
             else
             {
-                var Usertoken =_tokenService.Get(user.ID).Code;
+                var Usertoken =_tokenService.Get(user.ID);
                 if (Usertoken == null)
                 {
                     var model = new Models.Token()
@@ -82,7 +82,7 @@ namespace JoggingTime.Mediator.User
                     return new ResponseViewModel<string>(token);
                 }
 
-                return new ResponseViewModel<string>(Usertoken);
+                return new ResponseViewModel<string>(Usertoken.Code);
             }
         }
         public bool LogOut(string token)

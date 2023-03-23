@@ -31,6 +31,11 @@ namespace JoggingTime.Services.Token
             });
         }
 
+        public bool IsValidToken(string token)
+        {
+            return _repository.Any(i => i.Code == token && !i.IsDeleted && i.ExpirationDate > DateTime.Now);
+        }
+
     }
 }
 

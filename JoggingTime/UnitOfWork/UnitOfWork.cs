@@ -1,4 +1,5 @@
-﻿using JoggingTime.Helpers;
+﻿using JoggingTime.Enums;
+using JoggingTime.Helpers;
 using JoggingTime.Models;
 using Microsoft.EntityFrameworkCore;
 using System.Net;
@@ -10,6 +11,7 @@ namespace JoggingTime.UnitOfWork
 
         public ApplicationDBContext context { get; }
         public int UserID { set; get; }
+        public UserRole RoleID { set; get; }
         public UnitOfWork(ApplicationDBContext context)
         {
             SetUserID();
@@ -43,15 +45,15 @@ namespace JoggingTime.UnitOfWork
         }
         private void SetUserID()
         {
-            //try
-            //{
-            //    string accessToken = HttpRequestHelper.GetHeaderValue("token");
-            //    UserID = int.Parse(SecurityHelper.GetUserIDFromToken(accessToken).ToString());
-            //}
-            //catch (Exception)
-            //{
-            //    throw;
-            //}
+            try
+            {
+                string accessToken = HttpRequestHelper.GetHeaderValue("token");
+                UserID = int.Parse(SecurityHelper.GetUserIDFromToken(accessToken).ToString());
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
         private void BeginTransaction()

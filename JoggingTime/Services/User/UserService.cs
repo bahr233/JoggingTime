@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using AutoMapper.QueryableExtensions;
+using JoggingTime.Enums;
 using JoggingTime.Repositories;
 using JoggingTime.ViewModels.User;
 
@@ -47,5 +48,9 @@ namespace JoggingTime.Services.User
             _repository.Delete(Id);
         }
 
+        public bool HasAccess(int userId, UserRole userRole)
+        {
+            return _repository.Any(i=>i.ID==userId && i.UserRole==userRole);
+        }
     }
 }

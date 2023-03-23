@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace JoggingTime.Migrations
 {
     [DbContext(typeof(ApplicationDBContext))]
-    [Migration("20230319195445_UpdateTokenTable")]
-    partial class UpdateTokenTable
+    [Migration("20230323181542_init")]
+    partial class init
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -52,7 +52,7 @@ namespace JoggingTime.Migrations
 
                     b.HasIndex("UserID");
 
-                    b.ToTable("tokens");
+                    b.ToTable("Tokens");
                 });
 
             modelBuilder.Entity("JoggingTime.Models.User", b =>
@@ -81,7 +81,7 @@ namespace JoggingTime.Migrations
 
                     b.HasKey("ID");
 
-                    b.ToTable("users");
+                    b.ToTable("Users");
                 });
 
             modelBuilder.Entity("JoggingTime.Models.UserJoggingTime", b =>
@@ -112,7 +112,7 @@ namespace JoggingTime.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("userJoggingTimes");
+                    b.ToTable("UserJoggingTimes");
                 });
 
             modelBuilder.Entity("JoggingTime.Models.Token", b =>

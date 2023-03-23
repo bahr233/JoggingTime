@@ -23,5 +23,9 @@ namespace JoggingTime.Helpers
                 return "";
             }
         }
+        public static bool IsHeaderContainsKey(string key)
+        {
+            return Current.Request?.Headers?.Any(header => header.Key.ToLower() == key.ToLower() && !string.IsNullOrEmpty(header.Value)) ?? false;
+        }
     }
 }
